@@ -101,7 +101,7 @@ class ViewController: UIViewController {
                 if opp == "count" {
                     count = count  + 1
                     self.display.text = String(count)
-                } else if ( ) && isAvg {
+                } else if (opp == "end") && isAvg {
                     
                     let avgTotal = Int(firstValue)! / integerCount
                     self.display.text = String(avgTotal)
