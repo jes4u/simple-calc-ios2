@@ -26,7 +26,7 @@ class HistoryViewController: UIViewController {
             self.historyText.text = self.historyText.text + historyItem + "\n"
         }
     }
-    
+    //
 
     /*
     // MARK: - Navigation
