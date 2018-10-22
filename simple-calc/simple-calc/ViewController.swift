@@ -8,6 +8,8 @@
 
 import UIKit
 
+var historyList = [String]()
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var display: UILabel!
@@ -70,6 +72,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func result(_ sender: Any) {
+        var wholeProblem = self.display.text! + " ="
         self.recorder.append("end")
         self.display.text = ""
         var count = 1
@@ -101,11 +104,13 @@ class ViewController: UIViewController {
                 if opp == "count" {
                     count = count  + 1
                     self.display.text = String(count)
+                    wholeProblem = wholeProblem + String(count)
                 } else if (opp == "end") && isAvg {
                     
                     let avgTotal = Int(firstValue)! / integerCount
                     self.display.text = String(avgTotal)
                     firstValue = String(avgTotal)
+                    wholeProblem = wholeProblem + String(avgTotal)
                     
                 } else if opp == "avg" {
                     integerCount = integerCount + 1
@@ -118,6 +123,7 @@ class ViewController: UIViewController {
                     let ans = calc(firstValue, secondValue, opp)
                     self.display.text = String(ans)
                     firstValue = String(ans)
+                    wholeProblem = wholeProblem + String(ans)
                     
                 }
                 secondValue = ""
@@ -141,6 +147,8 @@ class ViewController: UIViewController {
             }
             
         }
+        
+        historyList.append(wholeProblem)
         self.recorder.removeAll()
         self.recorder.append(self.display.text!)
         
@@ -173,6 +181,10 @@ class ViewController: UIViewController {
 //        else { //opp = avg
 //            return Int(firstValue)! + Int(secondValue)!
 //        }
+    }
+    
+    @IBAction func history(_ sender: Any) {
+        performSegue(withIdentifier: "segue", sender: self)
     }
     
     
