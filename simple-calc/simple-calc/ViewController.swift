@@ -72,7 +72,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func result(_ sender: Any) {
-        var wholeProblem = self.display.text! + " ="
+        var wholeProblem = self.display.text! + " = "
         self.recorder.append("end")
         self.display.text = ""
         var count = 1
@@ -151,7 +151,6 @@ class ViewController: UIViewController {
         historyList.append(wholeProblem)
         self.recorder.removeAll()
         self.recorder.append(self.display.text!)
-        
         
     }
     
